@@ -11,7 +11,7 @@ require (
 	github.com/liamg/iamgo v0.0.9
 	github.com/liamg/memoryfs v1.6.0
 	github.com/mitchellh/mapstructure v1.5.0
-	github.com/open-policy-agent/opa v0.60.0
+	github.com/open-policy-agent/opa v0.68.0
 	github.com/owenrumney/squealer v1.2.1
 	github.com/spf13/cobra v1.8.0
 	github.com/stretchr/testify v1.8.4
