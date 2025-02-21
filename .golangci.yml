@@ -12,10 +12,10 @@ linters:
     - durationcheck
     - errname
     - errorlint
+    - exportloopref
     - goimports
     - gocritic
     - gosec
-    - copyloopvar
 
 linters-settings:
   cyclop:
