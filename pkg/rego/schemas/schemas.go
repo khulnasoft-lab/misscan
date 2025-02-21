@@ -5,7 +5,7 @@ import (
 )
 
 var SchemaMap = map[types.Source]Schema{
-	types.SourceMisscan:     Cloud,
+	types.SourceMisscan:    Cloud,
 	types.SourceCloud:      Cloud,
 	types.SourceKubernetes: Kubernetes,
 	types.SourceRbac:       Kubernetes,
