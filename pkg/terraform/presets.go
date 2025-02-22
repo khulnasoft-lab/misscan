@@ -12,7 +12,7 @@ func createPresetValues(b *Block) map[string]cty.Value {
 	presets := make(map[string]cty.Value)
 
 	// here we set up common "id" values that are set by the provider - this ensures all blocks have a default
-	// referencable id/arn. this isn't perfect, but the only way to link blocks in certain circumstances.
+	// referenceable id/arn. this isn't perfect, but the only way to link blocks in certain circumstances.
 	presets["id"] = cty.StringVal(b.ID())
 
 	if strings.HasPrefix(b.TypeLabel(), "aws_") {

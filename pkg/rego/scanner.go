@@ -137,7 +137,7 @@ func NewScanner(source types.Source, options ...options.ScannerOption) *Scanner 
 		ruleNamespaces: map[string]struct{}{
 			"builtin":   {},
 			"appshield": {},
-			"misscan":    {},
+			"misscan":   {},
 		},
 		runtimeValues: addRuntimeValues(),
 	}
