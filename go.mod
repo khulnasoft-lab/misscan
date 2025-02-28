@@ -15,7 +15,7 @@ require (
 	github.com/owenrumney/squealer v1.2.1
 	github.com/spf13/cobra v1.8.0
 	github.com/stretchr/testify v1.8.4
-	github.com/zclconf/go-cty v1.13.0
+	github.com/zclconf/go-cty v1.16.2
 	golang.org/x/net v0.20.0
 	golang.org/x/sync v0.6.0
 	golang.org/x/text v0.14.0
