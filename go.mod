@@ -1,12 +1,14 @@
 module github.com/khulnasoft-lab/misscan
 
-go 1.20
+go 1.23.0
+
+toolchain go1.24.1
 
 require (
 	github.com/alecthomas/chroma v0.10.0
 	github.com/antchfx/htmlquery v1.3.0
 	github.com/google/uuid v1.6.0
-	github.com/hashicorp/hcl/v2 v2.19.1
+	github.com/hashicorp/hcl/v2 v2.23.0
 	github.com/khulnasoft-lab/tunnel-audit v0.0.0-20250221174712-9ad8c1c5a22c
 	github.com/liamg/iamgo v0.0.9
 	github.com/liamg/memoryfs v1.6.0
