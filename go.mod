@@ -1,20 +1,22 @@
 module github.com/khulnasoft-lab/misscan
 
-go 1.20
+go 1.23.0
+
+toolchain go1.24.1
 
 require (
 	github.com/alecthomas/chroma v0.10.0
 	github.com/antchfx/htmlquery v1.3.0
 	github.com/google/uuid v1.6.0
 	github.com/hashicorp/hcl/v2 v2.23.0
-	github.com/khulnasoft-lab/tunnel-audit v0.0.0-20250221174712-9ad8c1c5a22c
+	github.com/khulnasoft-lab/tunnel-audit v0.0.0-20250224084318-8c7a2a71b03f
 	github.com/liamg/iamgo v0.0.9
 	github.com/liamg/memoryfs v1.6.0
 	github.com/mitchellh/mapstructure v1.5.0
 	github.com/open-policy-agent/opa v0.60.0
 	github.com/owenrumney/squealer v1.2.1
 	github.com/spf13/cobra v1.9.1
-	github.com/stretchr/testify v1.8.4
+	github.com/stretchr/testify v1.10.0
 	github.com/zclconf/go-cty v1.13.0
 	golang.org/x/net v0.37.0
 	golang.org/x/sync v0.12.0
