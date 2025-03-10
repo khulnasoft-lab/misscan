@@ -5,7 +5,7 @@ go 1.20
 require (
 	github.com/alecthomas/chroma v0.10.0
 	github.com/antchfx/htmlquery v1.3.0
-	github.com/google/uuid v1.5.0
+	github.com/google/uuid v1.6.0
 	github.com/hashicorp/hcl/v2 v2.19.1
 	github.com/khulnasoft-lab/tunnel-audit v0.0.0-20250221174712-9ad8c1c5a22c
 	github.com/liamg/iamgo v0.0.9
