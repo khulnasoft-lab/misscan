@@ -1,6 +1,7 @@
 module github.com/khulnasoft-lab/misscan
 
 go 1.20
+toolchain go1.24.1
 
 require (
 	github.com/alecthomas/chroma v0.10.0
@@ -14,7 +15,7 @@ require (
 	github.com/open-policy-agent/opa v0.60.0
 	github.com/owenrumney/squealer v1.2.1
 	github.com/spf13/cobra v1.9.1
-	github.com/stretchr/testify v1.8.4
+	github.com/stretchr/testify v1.10.0
 	github.com/zclconf/go-cty v1.13.0
 	golang.org/x/net v0.37.0
 	golang.org/x/sync v0.12.0
