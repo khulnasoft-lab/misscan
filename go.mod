@@ -1,6 +1,7 @@
 module github.com/khulnasoft-lab/misscan
 
-go 1.20
+go 1.23.0
+
 toolchain go1.24.1
 
 require (
@@ -16,7 +17,7 @@ require (
 	github.com/owenrumney/squealer v1.2.11
 	github.com/spf13/cobra v1.9.1
 	github.com/stretchr/testify v1.10.0
-	github.com/zclconf/go-cty v1.13.0
+	github.com/zclconf/go-cty v1.16.2
 	golang.org/x/net v0.37.0
 	golang.org/x/sync v0.12.0
 	golang.org/x/text v0.23.0
