@@ -1,11 +1,12 @@
 module github.com/khulnasoft-lab/misscan
 
-go 1.20
+go 1.23.0
+
 toolchain go1.24.1
 
 require (
 	github.com/alecthomas/chroma v0.10.0
-	github.com/antchfx/htmlquery v1.3.0
+	github.com/antchfx/htmlquery v1.3.4
 	github.com/google/uuid v1.6.0
 	github.com/hashicorp/hcl/v2 v2.23.0
 	github.com/khulnasoft-lab/tunnel-audit v0.0.0-20250221174712-9ad8c1c5a22c
@@ -30,7 +31,7 @@ require (
 	github.com/ProtonMail/go-crypto v1.1.5 // indirect
 	github.com/agext/levenshtein v1.2.3 // indirect
 	github.com/agnivade/levenshtein v1.1.1 // indirect
-	github.com/antchfx/xpath v1.2.3 // indirect
+	github.com/antchfx/xpath v1.3.3 // indirect
 	github.com/apparentlymart/go-textseg/v13 v13.0.0 // indirect
 	github.com/apparentlymart/go-textseg/v15 v15.0.0 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
