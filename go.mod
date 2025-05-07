@@ -10,7 +10,7 @@ require (
 	github.com/antchfx/htmlquery v1.3.4
 	github.com/google/uuid v1.6.0
 	github.com/hashicorp/hcl/v2 v2.23.0
-	github.com/khulnasoft-lab/tunnel-audit v0.0.0-20250221174712-9ad8c1c5a22c
+	github.com/khulnasoft-lab/tunnel-audit v0.0.0-20250224084318-8c7a2a71b03f
 	github.com/liamg/iamgo v0.0.9
 	github.com/liamg/memoryfs v1.6.0
 	github.com/mitchellh/mapstructure v1.5.0
