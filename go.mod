@@ -5,7 +5,7 @@ go 1.23.0
 toolchain go1.24.3
 
 require (
-	github.com/alecthomas/chroma v0.10.0
+	github.com/alecthomas/chroma/v2 v2.17.2
 	github.com/alecthomas/chroma/v2 v2.17.2
 	github.com/antchfx/htmlquery v1.3.4
 	github.com/google/uuid v1.6.0
