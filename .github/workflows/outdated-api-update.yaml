@@ -15,7 +15,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.AUTO_COMMIT_TOKEN }}
+          token: ${{ secrets.ORG_REPO_TOKEN }}
       - name: Fetch outdated API data from trivy-db-data repo
         id: outdatedapi
         uses: fjogeleit/http-request-action@v1
