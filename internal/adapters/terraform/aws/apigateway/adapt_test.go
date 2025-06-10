@@ -41,14 +41,14 @@ resource "aws_api_gateway_method" "example" {
     authorization    = "NONE"
 }
 resource "aws_apigatewayv2_api" "example" {
-    name = "tfsec"
+    name = "tfsecurity"
     protocol_type = "HTTP"
 }
 
 
 resource "aws_apigatewayv2_stage" "example" {
     api_id = aws_apigatewayv2_api.example.id
-    name = "tfsec" 
+    name = "tfsecurity" 
     access_log_settings {
         destination_arn = "arn:123"
     }
@@ -95,11 +95,11 @@ resource "aws_apigatewayv2_domain_name" "example" {
 				V2: v2.APIGateway{
 					APIs: []v2.API{
 						{
-							Name:         String("tfsec"),
+							Name:         String("tfsecurity"),
 							ProtocolType: String("HTTP"),
 							Stages: []v2.Stage{
 								{
-									Name: String("tfsec"),
+									Name: String("tfsecurity"),
 									AccessLogging: v2.AccessLogging{
 										CloudwatchLogGroupARN: String("arn:123"),
 									},
@@ -158,13 +158,13 @@ func TestLines(t *testing.T) {
 	  }
 
 	  resource "aws_apigatewayv2_api" "example" {
-		  name = "tfsec"
+		  name = "tfsecurity"
 		  protocol_type = "HTTP"
 	  }
 	  
 	  resource "aws_apigatewayv2_stage" "example" {
 		  api_id = aws_apigatewayv2_api.example.id
-		  name = "tfsec" 
+		  name = "tfsecurity" 
 		  access_log_settings {
 			  destination_arn = "arn:123"
 		  }

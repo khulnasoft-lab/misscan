@@ -34,13 +34,13 @@ resource "aws_apigatewayv2_api" "example" {
 			name: "full",
 			terraform: `
 resource "aws_apigatewayv2_api" "example" {
-    name = "tfsec"
+    name = "tfsecurity"
     protocol_type = "HTTP"
 }
 `,
 			expected: []v2.API{
 				{
-					Name:         String("tfsec"),
+					Name:         String("tfsecurity"),
 					ProtocolType: String("HTTP"),
 				},
 			},
@@ -80,14 +80,14 @@ resource "aws_apigatewayv2_stage" "example" {
 			name: "basics",
 			terraform: `
 resource "aws_apigatewayv2_stage" "example" {
-    name = "tfsec" 
+    name = "tfsecurity" 
     access_log_settings {
         destination_arn = "arn:123"
     }
 }
 `,
 			expected: v2.Stage{
-				Name: String("tfsec"),
+				Name: String("tfsecurity"),
 				AccessLogging: v2.AccessLogging{
 					CloudwatchLogGroupARN: String("arn:123"),
 				},

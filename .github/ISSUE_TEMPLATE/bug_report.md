@@ -15,11 +15,11 @@ Steps to reproduce the behavior:
 4. See error
 **Expected behavior**
 <!-- A clear and concise description of what you expected to happen. -->
-**Output of your tfsec command with --debug flag**
+**Output of your tfsecurity command with --debug flag**
 <!-- If applicable, add screenshots/output to help explain your problem. Remove sensitive info first! -->
 **System Info**
 <!-- complete the following -->
- - tfsec version: `?`
+ - tfsecurity version: `?`
  - terraform version: `?`
  - OS: `?`
 **Example Code**

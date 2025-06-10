@@ -17,7 +17,7 @@ var CheckAlbNotPublic = rules.Register(
 		ShortCode:   "alb-not-public",
 		Summary:     "Load balancer is exposed to the internet.",
 		Impact:      "The load balancer is exposed on the internet",
-		Resolution:  "Switch to an internal load balancer or add a tfsec ignore",
+		Resolution:  "Switch to an internal load balancer or add a tfsecurity ignore",
 		Explanation: `There are many scenarios in which you would want to expose a load balancer to the wider internet, but this check exists as a warning to prevent accidental exposure of internal assets. You should ensure that this resource should be exposed publicly.`,
 		Links:       []string{},
 		Terraform: &scan.EngineMetadata{

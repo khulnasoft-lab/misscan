@@ -106,12 +106,12 @@ resource "aws_api_gateway_rest_api" "example" {
 			name: "full",
 			terraform: `
 resource "aws_api_gateway_rest_api" "example" {
-   name = "tfsec" 
+   name = "tfsecurity" 
 }
 `,
 			expected: []v1.API{
 				{
-					Name: String("tfsec"),
+					Name: String("tfsecurity"),
 				},
 			},
 		},
