@@ -50,7 +50,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/workspaces v1.57.1
 	github.com/bmatcuk/doublestar/v4 v4.6.0
 	github.com/google/uuid v1.6.0
-	github.com/hashicorp/go-getter v1.7.1
+	github.com/hashicorp/go-getter v1.7.5
 	github.com/hashicorp/go-uuid v1.0.3
 	github.com/hashicorp/hcl/v2 v2.14.1
 	github.com/liamg/iamgo v0.0.9
