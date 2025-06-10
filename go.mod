@@ -7,7 +7,7 @@ toolchain go1.24.3
 require (
 	github.com/BurntSushi/toml v1.2.1
 	github.com/Masterminds/semver v1.5.0
-	github.com/alecthomas/chroma v0.10.0
+	github.com/alecthomas/chroma/v2 v2.18.0
 	github.com/apparentlymart/go-cidr v1.1.0
 	github.com/aws/aws-sdk-go v1.44.245
 	github.com/aws/aws-sdk-go-v2 v1.36.4
