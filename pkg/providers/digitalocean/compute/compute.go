@@ -24,9 +24,8 @@ type KubernetesCluster struct {
 }
 
 type LoadBalancer struct {
-	Metadata            misscanTypes.Metadata
-	ForwardingRules     []ForwardingRule
-	RedirectHttpToHttps misscanTypes.BoolValue
+	Metadata        misscanTypes.Metadata
+	ForwardingRules []ForwardingRule
 }
 
 type ForwardingRule struct {

@@ -3,8 +3,8 @@ package rego
 import (
 	"testing"
 
-	"github.com/khulnasoft-lab/misscan/pkg/rules"
-	rules2 "github.com/khulnasoft-lab/tunnel-audit"
+	"github.com/khulnasoft-lab/misscan/internal/rules"
+	rules2 "github.com/khulnasoft-lab/misscan/rules"
 	"github.com/open-policy-agent/opa/ast"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -12,10 +12,10 @@ import (
 
 func Test_EmbeddedLoading(t *testing.T) {
 
-	frameworkRules := rules.GetRegistered()
+	rules := rules.GetFrameworkRules()
 	var found bool
-	for _, rule := range frameworkRules {
-		if rule.GetRule().RegoPackage != "" {
+	for _, rule := range rules {
+		if rule.Rule().RegoPackage != "" {
 			found = true
 		}
 	}
@@ -102,7 +102,7 @@ deny[res]{
 
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
-			policies, err := LoadPoliciesFromDirs(rules2.EmbeddedLibraryFileSystem, ".")
+			policies, err := RecurseEmbeddedModules(rules2.EmbeddedLibraryFileSystem, ".")
 			require.NoError(t, err)
 			newRule, err := ast.ParseModuleWithOpts("/rules/newrule.rego", tc.inputPolicy, ast.ParserOptions{
 				ProcessAnnotation: true,

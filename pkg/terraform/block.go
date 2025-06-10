@@ -7,7 +7,7 @@ import (
 
 	misscanTypes "github.com/khulnasoft-lab/misscan/pkg/types"
 
-	"github.com/khulnasoft-lab/misscan/pkg/terraform/context"
+	"github.com/khulnasoft-lab/misscan/pkg/scanners/terraform/context"
 
 	"github.com/google/uuid"
 	"github.com/hashicorp/hcl/v2"
@@ -61,7 +61,7 @@ func NewBlock(hclBlock *hcl.Block, ctx *context.Context, moduleBlock *Block, par
 	var parts []string
 	// if there are no labels then use the block type
 	// this is for the case where "special" keywords like "resource" are used
-	// as normal block names in top level blocks - see issue tfsecurity#1528 for an example
+	// as normal block names in top level blocks - see issue tfsec#1528 for an example
 	if hclBlock.Type != "resource" || len(hclBlock.Labels) == 0 {
 		parts = append(parts, hclBlock.Type)
 	}
@@ -146,7 +146,7 @@ func (b *Block) InjectBlock(block *Block, name string) {
 	b.childBlocks = append(b.childBlocks, block)
 }
 
-func (b *Block) MarkCountExpanded() {
+func (b *Block) markCountExpanded() {
 	b.expanded = true
 }
 
@@ -188,7 +188,7 @@ func (b *Block) Clone(index cty.Value) *Block {
 	}
 	indexVal, _ := gocty.ToCtyValue(index, cty.Number)
 	clone.context.SetByDot(indexVal, "count.index")
-	clone.MarkCountExpanded()
+	clone.markCountExpanded()
 	b.cloneIndex++
 	return clone
 }

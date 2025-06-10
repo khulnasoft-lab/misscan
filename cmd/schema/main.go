@@ -5,8 +5,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/khulnasoft-lab/misscan/pkg/rego/schemas"
 	"github.com/spf13/cobra"
+
+	"github.com/khulnasoft-lab/misscan/pkg/rego/schemas"
 )
 
 // generate a json schema document for cloud rego input (state.State)

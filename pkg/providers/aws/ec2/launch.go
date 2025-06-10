@@ -16,7 +16,6 @@ type LaunchConfiguration struct {
 
 type LaunchTemplate struct {
 	Metadata misscanTypes.Metadata
-	Name     misscanTypes.StringValue
 	Instance
 }
 

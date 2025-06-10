@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/khulnasoft-lab/misscan/pkg/terraform/context"
+	"github.com/khulnasoft-lab/misscan/pkg/scanners/terraform/context"
 	misscanTypes "github.com/khulnasoft-lab/misscan/pkg/types"
 
 	"github.com/hashicorp/hcl/v2"
@@ -126,20 +126,9 @@ func (a *Attribute) AsStringValueOrDefault(defaultValue string, parent *Block) m
 	)
 }
 
-func (a *Attribute) AsStringValueSliceOrEmpty() (stringValues []misscanTypes.StringValue) {
+func (a *Attribute) AsStringValueSliceOrEmpty(parent *Block) (stringValues []misscanTypes.StringValue) {
 	if a.IsNil() {
 		return stringValues
-	}
-	return a.AsStringValues()
-}
-
-func (a *Attribute) AsStringValuesOrDefault(parent *Block, defaults ...string) []misscanTypes.StringValue {
-	if a.IsNil() {
-		res := make(misscanTypes.StringValueList, 0, len(defaults))
-		for _, def := range defaults {
-			res = append(res, misscanTypes.StringDefault(def, parent.GetMetadata()))
-		}
-		return res
 	}
 	return a.AsStringValues()
 }
@@ -226,14 +215,6 @@ func (a *Attribute) IsString() bool {
 		return false
 	}
 	return !a.Value().IsNull() && a.Value().IsKnown() && a.Value().Type() == cty.String
-}
-
-func (a *Attribute) IsMapOrObject() bool {
-	if a == nil || a.Value().IsNull() || !a.Value().IsKnown() {
-		return false
-	}
-
-	return a.Value().Type().IsObjectType() || a.Value().Type().IsMapType()
 }
 
 func (a *Attribute) IsNumber() bool {
@@ -821,21 +802,6 @@ func (a *Attribute) MapValue(mapKey string) cty.Value {
 	return cty.NilVal
 }
 
-func (a *Attribute) AsMapValue() misscanTypes.MapValue {
-	if a.IsNil() || a.IsNotResolvable() || !a.IsMapOrObject() {
-		return misscanTypes.MapValue{}
-	}
-
-	values := make(map[string]string)
-	_ = a.Each(func(key, val cty.Value) {
-		if key.Type() == cty.String && val.Type() == cty.String {
-			values[key.AsString()] = val.AsString()
-		}
-	})
-
-	return misscanTypes.Map(values, a.GetMetadata())
-}
-
 func (a *Attribute) LessThan(checkValue interface{}) bool {
 	if a == nil {
 		return false
@@ -987,10 +953,8 @@ func (a *Attribute) referencesFromExpression(expression hcl.Expression) []*Refer
 			refs = append(refs, ref)
 		}
 	case *hclsyntax.TupleConsExpr:
-		for _, v := range t.Variables() {
-			if ref, err := createDotReferenceFromTraversal(a.module, v); err == nil {
-				refs = append(refs, ref)
-			}
+		if ref, err := createDotReferenceFromTraversal(a.module, t.Variables()...); err == nil {
+			refs = append(refs, ref)
 		}
 	case *hclsyntax.RelativeTraversalExpr:
 		switch s := t.Source.(type) {

@@ -138,10 +138,6 @@
           "type": "object",
           "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.providers.aws.lambda.Lambda"
         },
-        "meta": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.providers.aws.Meta"
-        },
         "mq": {
           "type": "object",
           "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.providers.aws.mq.MQ"
@@ -185,274 +181,6 @@
         "workspaces": {
           "type": "object",
           "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.providers.aws.workspaces.WorkSpaces"
-        }
-      }
-    },
-    "github.com.khulnasoft-lab.misscan.pkg.providers.aws.AssumeRole": {
-      "type": "object",
-      "properties": {
-        "duration": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-        },
-        "externalid": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-        },
-        "policy": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-        },
-        "policyarns": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-          }
-        },
-        "rolearn": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-        },
-        "sessionname": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-        },
-        "sourceidentity": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-        },
-        "tags": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.MapValue"
-        },
-        "transitivetagkeys": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-          }
-        }
-      }
-    },
-    "github.com.khulnasoft-lab.misscan.pkg.providers.aws.AssumeRoleWithWebIdentity": {
-      "type": "object",
-      "properties": {
-        "duration": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-        },
-        "policy": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-        },
-        "policyarns": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-          }
-        },
-        "rolearn": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-        },
-        "sessionname": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-        },
-        "webidentitytoken": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-        },
-        "webidentitytokenfile": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-        }
-      }
-    },
-    "github.com.khulnasoft-lab.misscan.pkg.providers.aws.DefaultTags": {
-      "type": "object",
-      "properties": {
-        "tags": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.MapValue"
-        }
-      }
-    },
-    "github.com.khulnasoft-lab.misscan.pkg.providers.aws.IgnoreTags": {
-      "type": "object",
-      "properties": {
-        "keyprefixes": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-          }
-        },
-        "keys": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-          }
-        }
-      }
-    },
-    "github.com.khulnasoft-lab.misscan.pkg.providers.aws.Meta": {
-      "type": "object",
-      "properties": {
-        "tfproviders": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.providers.aws.TerraformProvider"
-          }
-        }
-      }
-    },
-    "github.com.khulnasoft-lab.misscan.pkg.providers.aws.TerraformProvider": {
-      "type": "object",
-      "properties": {
-        "accesskey": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-        },
-        "alias": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-        },
-        "allowedaccountsids": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-          }
-        },
-        "assumerole": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.providers.aws.AssumeRole"
-        },
-        "assumerolewithwebidentity": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.providers.aws.AssumeRoleWithWebIdentity"
-        },
-        "customcabundle": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-        },
-        "defaulttags": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.providers.aws.DefaultTags"
-        },
-        "ec2metadataserviceendpoint": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-        },
-        "ec2metadataserviceendpointmode": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-        },
-        "endpoints": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.MapValue"
-        },
-        "forbiddenaccountids": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-          }
-        },
-        "httpproxy": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-        },
-        "ignoretags": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.providers.aws.IgnoreTags"
-        },
-        "insecure": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.BoolValue"
-        },
-        "maxretries": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.IntValue"
-        },
-        "profile": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-        },
-        "region": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-        },
-        "retrymode": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-        },
-        "s3useast1regionalendpoint": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-        },
-        "s3usepathstyle": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.BoolValue"
-        },
-        "secretkey": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-        },
-        "sharedconfigfiles": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-          }
-        },
-        "sharedcredentialsfiles": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-          }
-        },
-        "skipcredentialsvalidation": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.BoolValue"
-        },
-        "skipmetadataapicheck": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.BoolValue"
-        },
-        "skipregionvalidation": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.BoolValue"
-        },
-        "skiprequestingaccountid": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.BoolValue"
-        },
-        "stsregion": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-        },
-        "token": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-        },
-        "usedualstackendpoint": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.BoolValue"
-        },
-        "usefipsendpoint": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.BoolValue"
-        },
-        "version": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
         }
       }
     },
@@ -835,15 +563,7 @@
     "github.com.khulnasoft-lab.misscan.pkg.providers.aws.cloudfront.ViewerCertificate": {
       "type": "object",
       "properties": {
-        "cloudfrontdefaultcertificate": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.BoolValue"
-        },
         "minimumprotocolversion": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-        },
-        "sslsupportmethod": {
           "type": "object",
           "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
         }
@@ -1367,10 +1087,6 @@
         "instance": {
           "type": "object",
           "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.providers.aws.ec2.Instance"
-        },
-        "name": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
         }
       }
     },
@@ -2158,12 +1874,6 @@
         },
         "managed": {
           "type": "boolean"
-        },
-        "resource": {
-          "type": "string"
-        },
-        "sourceprefix": {
-          "type": "string"
         },
         "startline": {
           "type": "integer"
@@ -4793,10 +4503,6 @@
             "type": "object",
             "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.providers.digitalocean.compute.ForwardingRule"
           }
-        },
-        "redirecthttptohttps": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.BoolValue"
         }
       }
     },
@@ -5349,10 +5055,6 @@
         "name": {
           "type": "object",
           "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-        },
-        "purpose": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
         }
       }
     },
@@ -5372,11 +5074,8 @@
       "type": "object",
       "properties": {
         "defaultkeyspecs": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.providers.google.dns.KeySpecs"
-          }
+          "type": "object",
+          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.providers.google.dns.KeySpecs"
         },
         "enabled": {
           "type": "object",
@@ -5384,16 +5083,25 @@
         }
       }
     },
-    "github.com.khulnasoft-lab.misscan.pkg.providers.google.dns.KeySpecs": {
+    "github.com.khulnasoft-lab.misscan.pkg.providers.google.dns.Key": {
       "type": "object",
       "properties": {
         "algorithm": {
           "type": "object",
           "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-        },
-        "keytype": {
+        }
+      }
+    },
+    "github.com.khulnasoft-lab.misscan.pkg.providers.google.dns.KeySpecs": {
+      "type": "object",
+      "properties": {
+        "keysigningkey": {
           "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
+          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.providers.google.dns.Key"
+        },
+        "zonesigningkey": {
+          "type": "object",
+          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.providers.google.dns.Key"
         }
       }
     },
@@ -5422,10 +5130,6 @@
     "github.com.khulnasoft-lab.misscan.pkg.providers.google.gke.Cluster": {
       "type": "object",
       "properties": {
-        "datapathprovider": {
-          "type": "object",
-          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.StringValue"
-        },
         "enableautpilot": {
           "type": "object",
           "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.BoolValue"
@@ -5472,6 +5176,10 @@
             "type": "object",
             "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.providers.google.gke.NodePool"
           }
+        },
+        "podsecuritypolicy": {
+          "type": "object",
+          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.providers.google.gke.PodSecurityPolicy"
         },
         "privatecluster": {
           "type": "object",
@@ -5594,6 +5302,15 @@
         "nodeconfig": {
           "type": "object",
           "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.providers.google.gke.NodeConfig"
+        }
+      }
+    },
+    "github.com.khulnasoft-lab.misscan.pkg.providers.google.gke.PodSecurityPolicy": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "object",
+          "$ref": "#/definitions/github.com.khulnasoft-lab.misscan.pkg.types.BoolValue"
         }
       }
     },

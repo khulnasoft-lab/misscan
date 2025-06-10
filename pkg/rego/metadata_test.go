@@ -3,121 +3,8 @@ package rego
 import (
 	"testing"
 
-	"github.com/khulnasoft-lab/misscan/pkg/framework"
-	"github.com/khulnasoft-lab/misscan/pkg/scan"
 	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/require"
 )
-
-func Test_UpdateStaticMetadata(t *testing.T) {
-	t.Run("happy", func(t *testing.T) {
-		sm := StaticMetadata{
-			ID:                 "i",
-			AVDID:              "a",
-			Title:              "t",
-			ShortCode:          "sc",
-			Aliases:            []string{"a", "b", "c"},
-			Description:        "d",
-			Severity:           "s",
-			RecommendedActions: "ra",
-			PrimaryURL:         "pu",
-			References:         []string{"r"},
-			Package:            "pkg",
-			Provider:           "pr",
-			Service:            "srvc",
-			Library:            false,
-			Frameworks: map[framework.Framework][]string{
-				framework.Default: {"dd"},
-			},
-		}
-
-		require.NoError(t, sm.Update(
-			map[string]any{
-				"id":                  "i_n",
-				"avd_id":              "a_n",
-				"title":               "t_n",
-				"short_code":          "sc_n",
-				"aliases":             []any{"a_n", "b_n", "c_n"},
-				"description":         "d_n",
-				"service":             "srvc_n",
-				"provider":            "pr_n",
-				"recommended_actions": "ra_n",
-				"severity":            "s_n",
-				"library":             true,
-				"url":                 "r_n",
-				"frameworks": map[string][]string{
-					"all": {"aa"},
-				},
-			},
-		))
-
-		expected := StaticMetadata{
-			ID:                 "i_n",
-			AVDID:              "a_n",
-			Title:              "t_n",
-			ShortCode:          "sc_n",
-			Aliases:            []string{"a", "b", "c", "a_n", "b_n", "c_n"},
-			Description:        "d_n",
-			Severity:           "S_N",
-			RecommendedActions: "ra_n",
-			PrimaryURL:         "pu",
-			References:         []string{"r", "r_n"},
-			Package:            "pkg",
-			Provider:           "pr_n",
-			Service:            "srvc_n",
-			Library:            true,
-			Frameworks: map[framework.Framework][]string{
-				framework.Default: {"dd"},
-				framework.ALL:     {"aa"},
-			},
-			CloudFormation: &scan.EngineMetadata{},
-			Terraform:      &scan.EngineMetadata{},
-		}
-
-		assert.Equal(t, expected, sm)
-	})
-
-	t.Run("related resources are a map", func(t *testing.T) {
-		sm := StaticMetadata{
-			References: []string{"r"},
-		}
-		require.NoError(t, sm.Update(map[string]any{
-			"related_resources": []map[string]any{
-				{
-					"ref": "r1_n",
-				},
-				{
-					"ref": "r2_n",
-				},
-			},
-		}))
-
-		expected := StaticMetadata{
-			References:     []string{"r", "r1_n", "r2_n"},
-			CloudFormation: &scan.EngineMetadata{},
-			Terraform:      &scan.EngineMetadata{},
-		}
-
-		assert.Equal(t, expected, sm)
-	})
-
-	t.Run("related resources are a string", func(t *testing.T) {
-		sm := StaticMetadata{
-			References: []string{"r"},
-		}
-		require.NoError(t, sm.Update(map[string]any{
-			"related_resources": []string{"r1_n", "r2_n"},
-		}))
-
-		expected := StaticMetadata{
-			References:     []string{"r", "r1_n", "r2_n"},
-			CloudFormation: &scan.EngineMetadata{},
-			Terraform:      &scan.EngineMetadata{},
-		}
-
-		assert.Equal(t, expected, sm)
-	})
-}
 
 func Test_getEngineMetadata(t *testing.T) {
 	inputSchema := map[string]interface{}{
@@ -183,7 +70,8 @@ Resources:
 
 	for _, tc := range testCases {
 		t.Run(tc.schema, func(t *testing.T) {
-			em, err := NewEngineMetadata(tc.schema, inputSchema)
+			var m MetadataRetriever
+			em, err := m.getEngineMetadata(tc.schema, inputSchema)
 			assert.NoError(t, err)
 			assert.Equal(t, tc.want, em.GoodExamples[0])
 		})

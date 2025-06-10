@@ -38,8 +38,6 @@ const (
 )
 
 type ViewerCertificate struct {
-	Metadata                     misscanTypes.Metadata
-	CloudfrontDefaultCertificate misscanTypes.BoolValue
-	SSLSupportMethod             misscanTypes.StringValue
-	MinimumProtocolVersion       misscanTypes.StringValue
+	Metadata               misscanTypes.Metadata
+	MinimumProtocolVersion misscanTypes.StringValue
 }

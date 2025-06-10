@@ -5,8 +5,10 @@ import (
 	"io/fs"
 	"strconv"
 
-	"github.com/khulnasoft-lab/misscan/pkg/scan"
 	misscanTypes "github.com/khulnasoft-lab/misscan/pkg/types"
+
+	"github.com/khulnasoft-lab/misscan/pkg/scan"
+
 	"github.com/open-policy-agent/opa/rego"
 )
 

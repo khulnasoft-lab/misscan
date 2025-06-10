@@ -7,6 +7,5 @@ import (
 type SubNetwork struct {
 	Metadata       misscanTypes.Metadata
 	Name           misscanTypes.StringValue
-	Purpose        misscanTypes.StringValue
 	EnableFlowLogs misscanTypes.BoolValue
 }

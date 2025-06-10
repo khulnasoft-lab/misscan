@@ -3,6 +3,8 @@ package rules
 import (
 	"encoding/json"
 	"strings"
+
+	"github.com/khulnasoft-lab/misscan/internal/rules"
 )
 
 type Provider struct {
@@ -22,16 +24,16 @@ type Check struct {
 
 func GetProvidersHierarchy() (providers map[string]map[string][]string) {
 
-	registeredRules := GetRegistered()
+	registeredRules := rules.GetFrameworkRules()
 
 	provs := make(map[string]map[string][]string)
 
 	for _, rule := range registeredRules {
 
 		cNames := make(map[string]bool)
-		pName := strings.ToLower(rule.GetRule().Provider.DisplayName())
-		sName := strings.ToLower(rule.GetRule().Service)
-		cName := rule.GetRule().AVDID
+		pName := strings.ToLower(rule.Rule().Provider.DisplayName())
+		sName := strings.ToLower(rule.Rule().Service)
+		cName := rule.Rule().AVDID
 
 		if _, ok := provs[pName]; !ok {
 			provs[pName] = make(map[string][]string)
@@ -52,16 +54,16 @@ func GetProvidersHierarchy() (providers map[string]map[string][]string) {
 
 func GetProviders() (providers []Provider) {
 
-	registeredRules := GetRegistered()
+	registeredRules := rules.GetFrameworkRules()
 
 	provs := make(map[string]map[string][]Check)
 
 	for _, rule := range registeredRules {
 
-		pName := strings.ToLower(rule.GetRule().Provider.DisplayName())
-		sName := strings.ToLower(rule.GetRule().Service)
-		cName := rule.GetRule().AVDID
-		desc := rule.GetRule().Summary
+		pName := strings.ToLower(rule.Rule().Provider.DisplayName())
+		sName := strings.ToLower(rule.Rule().Service)
+		cName := rule.Rule().AVDID
+		desc := rule.Rule().Summary
 
 		if _, ok := provs[pName]; !ok {
 			provs[pName] = make(map[string][]Check)
@@ -104,14 +106,14 @@ func GetProvidersAsJson() ([]byte, error) {
 
 func GetProviderNames() []string {
 
-	registeredRules := GetRegistered()
+	registeredRules := rules.GetFrameworkRules()
 
 	providers := make(map[string]bool)
 
 	for _, rule := range registeredRules {
 
-		if _, ok := providers[rule.GetRule().Provider.DisplayName()]; !ok {
-			providers[rule.GetRule().Provider.DisplayName()] = true
+		if _, ok := providers[rule.Rule().Provider.DisplayName()]; !ok {
+			providers[rule.Rule().Provider.DisplayName()] = true
 		}
 
 	}
@@ -127,18 +129,18 @@ func GetProviderNames() []string {
 
 func GetProviderServiceNames(providerName string) []string {
 
-	registeredRules := GetRegistered()
+	registeredRules := rules.GetFrameworkRules()
 
 	services := make(map[string]bool)
 
 	for _, rule := range registeredRules {
 
-		if !strings.EqualFold(providerName, rule.GetRule().Provider.DisplayName()) {
+		if !strings.EqualFold(providerName, rule.Rule().Provider.DisplayName()) {
 			continue
 		}
 
-		if _, ok := services[rule.GetRule().Service]; !ok {
-			services[rule.GetRule().Service] = true
+		if _, ok := services[rule.Rule().Service]; !ok {
+			services[rule.Rule().Service] = true
 		}
 
 	}
@@ -152,18 +154,18 @@ func GetProviderServiceNames(providerName string) []string {
 
 func GetProviderServiceCheckNames(providerName string, serviceName string) []string {
 
-	registeredRules := GetRegistered()
+	registeredRules := rules.GetFrameworkRules()
 
 	var checks []string
 
 	for _, rule := range registeredRules {
 
-		if !strings.EqualFold(providerName, rule.GetRule().Provider.DisplayName()) ||
-			!strings.EqualFold(serviceName, rule.GetRule().Service) {
+		if !strings.EqualFold(providerName, rule.Rule().Provider.DisplayName()) ||
+			!strings.EqualFold(serviceName, rule.Rule().Service) {
 			continue
 		}
 
-		checks = append(checks, rule.GetRule().AVDID)
+		checks = append(checks, rule.Rule().AVDID)
 	}
 	return checks
 }

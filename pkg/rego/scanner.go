@@ -9,15 +9,19 @@ import (
 	"io/fs"
 	"strings"
 
+	"github.com/khulnasoft-lab/misscan/pkg/rego/schemas"
+
+	"github.com/khulnasoft-lab/misscan/pkg/types"
+
 	"github.com/khulnasoft-lab/misscan/pkg/debug"
 	"github.com/khulnasoft-lab/misscan/pkg/framework"
-	"github.com/khulnasoft-lab/misscan/pkg/rego/schemas"
-	"github.com/khulnasoft-lab/misscan/pkg/scan"
-	"github.com/khulnasoft-lab/misscan/pkg/scanners/options"
-	"github.com/khulnasoft-lab/misscan/pkg/types"
+
 	"github.com/open-policy-agent/opa/ast"
 	"github.com/open-policy-agent/opa/rego"
 	"github.com/open-policy-agent/opa/storage"
+
+	"github.com/khulnasoft-lab/misscan/pkg/scan"
+	"github.com/khulnasoft-lab/misscan/pkg/scanners/options"
 )
 
 var _ options.ConfigurableScanner = (*Scanner)(nil)
@@ -125,8 +129,20 @@ type DynamicMetadata struct {
 	EndLine   int
 }
 
+var SchemaMap = map[types.Source]schemas.Schema{
+	types.SourceMisscan:     schemas.Cloud,
+	types.SourceCloud:      schemas.Cloud,
+	types.SourceKubernetes: schemas.Kubernetes,
+	types.SourceRbac:       schemas.Kubernetes,
+	types.SourceDockerfile: schemas.Dockerfile,
+	types.SourceTOML:       schemas.Anything,
+	types.SourceYAML:       schemas.Anything,
+	types.SourceJSON:       schemas.Anything,
+}
+
 func NewScanner(source types.Source, options ...options.ScannerOption) *Scanner {
-	schema, ok := schemas.SchemaMap[source]
+
+	schema, ok := SchemaMap[source]
 	if !ok {
 		schema = schemas.Anything
 	}
@@ -137,7 +153,7 @@ func NewScanner(source types.Source, options ...options.ScannerOption) *Scanner 
 		ruleNamespaces: map[string]struct{}{
 			"builtin":   {},
 			"appshield": {},
-			"misscan":   {},
+			"misscan":    {},
 		},
 		runtimeValues: addRuntimeValues(),
 	}
@@ -155,6 +171,10 @@ func NewScanner(source types.Source, options ...options.ScannerOption) *Scanner 
 
 func (s *Scanner) SetParentDebugLogger(l debug.Logger) {
 	s.debug = l.Extend("rego")
+}
+
+func getModuleNamespace(module *ast.Module) string {
+	return strings.TrimPrefix(module.Package.Path.String(), "data.")
 }
 
 func (s *Scanner) runQuery(ctx context.Context, query string, input interface{}, disableTracing bool) (rego.ResultSet, []string, error) {
@@ -185,7 +205,7 @@ func (s *Scanner) runQuery(ctx context.Context, query string, input interface{},
 		return nil, nil, err
 	}
 
-	// we also build a slice of trace lines for per-result tracing - primarily for fanal/tunnel
+	// we also build a slice of trace lines for per-result tracing - primarily for fanal/trivy
 	var traces []string
 
 	if trace {
@@ -205,14 +225,6 @@ type Input struct {
 	Path     string      `json:"path"`
 	FS       fs.FS       `json:"-"`
 	Contents interface{} `json:"contents"`
-}
-
-func GetInputsContents(inputs []Input) []any {
-	results := make([]any, len(inputs))
-	for i, c := range inputs {
-		results[i] = c.Contents
-	}
-	return results
 }
 
 func (s *Scanner) ScanInput(ctx context.Context, inputs ...Input) (scan.Results, error) {
@@ -235,7 +247,7 @@ func (s *Scanner) ScanInput(ctx context.Context, inputs ...Input) (scan.Results,
 			continue
 		}
 
-		staticMeta, err := s.retriever.RetrieveMetadata(ctx, module, GetInputsContents(inputs)...)
+		staticMeta, err := s.retriever.RetrieveMetadata(ctx, module, inputs...)
 		if err != nil {
 			return nil, err
 		}
@@ -275,7 +287,7 @@ func (s *Scanner) ScanInput(ctx context.Context, inputs ...Input) (scan.Results,
 }
 
 func isPolicyWithSubtype(sourceType types.Source) bool {
-	for _, s := range []types.Source{types.SourceCloud, types.SourceMisscan, types.SourceKubernetes} {
+	for _, s := range []types.Source{types.SourceCloud, types.SourceMisscan} { // TODO(simar): Add types.Kubernetes once all k8s policy have subtype
 		if sourceType == s {
 			return true
 		}
@@ -296,10 +308,11 @@ func checkSubtype(ii map[string]interface{}, provider string, subTypes []SubType
 					return true
 				}
 			}
-		case string: // k8s - logic can be improved
-			if strings.EqualFold(services, st.Group) ||
-				strings.EqualFold(services, st.Version) ||
-				strings.EqualFold(services, st.Kind) {
+		case string: // k8s
+			// TODO(simar): This logic probably needs to be revisited
+			if services == st.Group ||
+				services == st.Version ||
+				services == st.Kind {
 				return true
 			}
 		}
