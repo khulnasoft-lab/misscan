@@ -7,12 +7,12 @@ import (
 	"sync"
 	"testing"
 
-	aws2 "github.com/khulnasoft-lab/misscan/internal/adapters/cloud/aws"
-	"github.com/khulnasoft-lab/misscan/pkg/progress"
-	localstack "github.com/khulnasoft-lab/go-mock-aws"
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/credentials"
+	localstack "github.com/khulnasoft-lab/go-mock-aws"
+	aws2 "github.com/khulnasoft-lab/misscan/internal/adapters/cloud/aws"
+	"github.com/khulnasoft-lab/misscan/pkg/progress"
 	log "github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/require"
 )

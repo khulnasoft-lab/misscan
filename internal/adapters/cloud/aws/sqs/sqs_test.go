@@ -3,13 +3,13 @@ package sqs
 import (
 	"fmt"
 
-	"github.com/khulnasoft-lab/misscan/internal/adapters/cloud/aws/test"
-	"github.com/khulnasoft-lab/misscan/pkg/providers/aws/sqs"
-	"github.com/khulnasoft-lab/misscan/pkg/state"
-	localstack "github.com/khulnasoft-lab/go-mock-aws"
 	"github.com/aws/aws-sdk-go-v2/aws"
 	sqsapi "github.com/aws/aws-sdk-go-v2/service/sqs"
 	sqsTypes "github.com/aws/aws-sdk-go-v2/service/sqs/types"
+	localstack "github.com/khulnasoft-lab/go-mock-aws"
+	"github.com/khulnasoft-lab/misscan/internal/adapters/cloud/aws/test"
+	"github.com/khulnasoft-lab/misscan/pkg/providers/aws/sqs"
+	"github.com/khulnasoft-lab/misscan/pkg/state"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
