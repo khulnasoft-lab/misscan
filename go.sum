@@ -1166,6 +1166,8 @@ github.com/kevinburke/ssh_config v1.2.0 h1:x584FjTGwHzMwvHx18PXxbBVzfnxogHaAReU4
 github.com/kevinburke/ssh_config v1.2.0/go.mod h1:CT57kijsi8u/K/BOFA39wgDQJ9CxiF4nAY/ojJ6r6mM=
 github.com/khulnasoft-lab/go-mock-aws v1.0.1 h1:2Y+5UpGYt+ZI9+GruQssH9yjFLMy4+nCSq2u9nWAEZw=
 github.com/khulnasoft-lab/go-mock-aws v1.0.1/go.mod h1:g+U7TiJrSzeBM+cOkxbYL6x/Cnh9jVVJIUT1IeEWPSI=
+github.com/khulnasoft-lab/iamgo v0.0.0-20250611014628-58aa6592bc89 h1:00RoaB/A7IyqqvpbvqN/2QFQy7/GE/LTP0oZtAwo2Co=
+github.com/khulnasoft-lab/iamgo v0.0.0-20250611014628-58aa6592bc89/go.mod h1:MJPepaotJGgU3z00wZPqVjrZVNNt2XNoBpHvNa8jN+w=
 github.com/khulnasoft-lab/jfather v0.0.8 h1:0eKguayepphbLThYpuntXarBkBjta1sFlM+UyjZf1Hw=
 github.com/khulnasoft-lab/jfather v0.0.8/go.mod h1:JECXuyz2vPQBvK8qRXquf1huJu2TsSkyyL0rxO5gDPM=
 github.com/kisielk/errcheck v1.5.0/go.mod h1:pFxgyoBC7bSaBwPgfKdkLd5X25qrDl4LWUI2bnpBCr8=

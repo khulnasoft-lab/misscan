@@ -57,7 +57,6 @@ require (
 	github.com/hashicorp/go-uuid v1.0.3
 	github.com/hashicorp/hcl/v2 v2.23.0
 	github.com/khulnasoft-lab/go-mock-aws v1.0.1
-	github.com/khulnasoft-lab/iamgo v0.0.0-00010101000000-000000000000
 	github.com/liamg/iamgo v0.0.9
 	github.com/liamg/memoryfs v1.6.0
 	github.com/liamg/tml v0.7.0
@@ -183,6 +182,7 @@ require (
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/kevinburke/ssh_config v1.2.0 // indirect
+	github.com/khulnasoft-lab/iamgo v0.0.0-20250611014628-58aa6592bc89 // indirect
 	github.com/khulnasoft-lab/jfather v0.0.8 // indirect
 	github.com/klauspost/compress v1.18.0 // indirect
 	github.com/lann/builder v0.0.0-20180802200727-47ae307949d0 // indirect
@@ -291,5 +291,3 @@ require (
 	sigs.k8s.io/structured-merge-diff/v4 v4.6.0 // indirect
 	sigs.k8s.io/yaml v1.4.0 // indirect
 )
-
-replace github.com/khulnasoft-lab/iamgo => ../iamgo
