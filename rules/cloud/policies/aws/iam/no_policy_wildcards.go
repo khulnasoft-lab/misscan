@@ -18,7 +18,7 @@ import (
 
 	"github.com/khulnasoft-lab/misscan/pkg/providers"
 
-	"github.com/liamg/iamgo"
+	"github.com/khulnasoft-lab/iamgo"
 )
 
 var (

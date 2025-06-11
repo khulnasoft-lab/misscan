@@ -57,7 +57,7 @@ require (
 	github.com/hashicorp/go-uuid v1.0.3
 	github.com/hashicorp/hcl/v2 v2.23.0
 	github.com/khulnasoft-lab/go-mock-aws v1.0.1
-	github.com/liamg/iamgo v0.0.9
+	github.com/khulnasoft-lab/iamgo v0.0.0-20250611014628-58aa6592bc89
 	github.com/liamg/memoryfs v1.6.0
 	github.com/liamg/tml v0.7.0
 	github.com/mitchellh/go-homedir v1.1.0
@@ -182,12 +182,10 @@ require (
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/kevinburke/ssh_config v1.2.0 // indirect
-	github.com/khulnasoft-lab/iamgo v0.0.0-20250611014628-58aa6592bc89 // indirect
 	github.com/khulnasoft-lab/jfather v0.0.8 // indirect
 	github.com/klauspost/compress v1.18.0 // indirect
 	github.com/lann/builder v0.0.0-20180802200727-47ae307949d0 // indirect
 	github.com/lann/ps v0.0.0-20150810152359-62de8c46ede0 // indirect
-	github.com/liamg/jfather v0.0.7 // indirect
 	github.com/lib/pq v1.10.9 // indirect
 	github.com/liggitt/tabwriter v0.0.0-20181228230101-89fcab3d43de // indirect
 	github.com/lufia/plan9stats v0.0.0-20240226150601-1dcf7310316a // indirect

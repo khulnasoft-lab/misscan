@@ -9,7 +9,7 @@ import (
 	misscanTypes "github.com/khulnasoft-lab/misscan/pkg/types"
 	ecrapi "github.com/aws/aws-sdk-go-v2/service/ecr"
 	"github.com/aws/aws-sdk-go-v2/service/ecr/types"
-	"github.com/liamg/iamgo"
+	"github.com/khulnasoft-lab/iamgo"
 )
 
 type adapter struct {

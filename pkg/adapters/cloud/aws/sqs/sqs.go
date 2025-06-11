@@ -10,7 +10,7 @@ import (
 	"github.com/aws/aws-sdk-go-v2/aws"
 	sqsApi "github.com/aws/aws-sdk-go-v2/service/sqs"
 	sqsTypes "github.com/aws/aws-sdk-go-v2/service/sqs/types"
-	"github.com/liamg/iamgo"
+	"github.com/khulnasoft-lab/iamgo"
 )
 
 type adapter struct {

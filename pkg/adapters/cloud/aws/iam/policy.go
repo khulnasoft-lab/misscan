@@ -7,7 +7,7 @@ import (
 	"github.com/khulnasoft-lab/misscan/pkg/concurrency"
 	misscanTypes "github.com/khulnasoft-lab/misscan/pkg/types"
 
-	"github.com/liamg/iamgo"
+	"github.com/khulnasoft-lab/iamgo"
 
 	"github.com/khulnasoft-lab/misscan/pkg/providers/aws/iam"
 	"github.com/khulnasoft-lab/misscan/pkg/state"

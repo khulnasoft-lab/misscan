@@ -10,7 +10,7 @@ import (
 	"github.com/khulnasoft-lab/misscan/pkg/providers/aws/iam"
 	"github.com/khulnasoft-lab/misscan/pkg/scan"
 
-	"github.com/liamg/iamgo"
+	"github.com/khulnasoft-lab/iamgo"
 
 	"github.com/stretchr/testify/assert"
 )

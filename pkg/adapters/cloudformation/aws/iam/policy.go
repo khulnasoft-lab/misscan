@@ -9,7 +9,7 @@ import (
 
 	"github.com/khulnasoft-lab/misscan/pkg/providers/aws/iam"
 
-	"github.com/liamg/iamgo"
+	"github.com/khulnasoft-lab/iamgo"
 )
 
 func getPolicies(ctx parser.FileContext) (policies []iam.Policy) {

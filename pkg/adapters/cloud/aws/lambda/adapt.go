@@ -11,7 +11,7 @@ import (
 	"github.com/khulnasoft-lab/misscan/pkg/state"
 	lambdaapi "github.com/aws/aws-sdk-go-v2/service/lambda"
 	"github.com/aws/aws-sdk-go-v2/service/lambda/types"
-	"github.com/liamg/iamgo"
+	"github.com/khulnasoft-lab/iamgo"
 )
 
 type adapter struct {

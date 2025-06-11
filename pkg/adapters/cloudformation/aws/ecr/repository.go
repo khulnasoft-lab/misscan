@@ -10,7 +10,7 @@ import (
 	"github.com/khulnasoft-lab/misscan/pkg/providers/aws/ecr"
 	"github.com/khulnasoft-lab/misscan/pkg/providers/aws/iam"
 
-	"github.com/liamg/iamgo"
+	"github.com/khulnasoft-lab/iamgo"
 )
 
 func getRepositories(ctx parser.FileContext) (repositories []ecr.Repository) {
