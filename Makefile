@@ -23,7 +23,7 @@ fmt-rego:
 
 .PHONY: test-rego
 test-rego:
-	go test --run Test_AllRegoRules ./pkg/test
+	go test --run Test_AllRegoRules ./test
 
 .PHONY: typos
 typos:
