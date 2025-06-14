@@ -691,6 +691,8 @@ github.com/aws/aws-sdk-go-v2/service/accessanalyzer v1.39.2 h1:V6tDjY2EiXQjSi8B1
 github.com/aws/aws-sdk-go-v2/service/accessanalyzer v1.39.2/go.mod h1:X/AD5JLVuoLwivsFv5CAFDkx/9nC4sPP3IYjiVcarDA=
 github.com/aws/aws-sdk-go-v2/service/apigateway v1.31.2 h1:1/Z0F1PA6A1eeLsm502bB5OYYQRmmiQVOTgS8FAegGc=
 github.com/aws/aws-sdk-go-v2/service/apigateway v1.31.2/go.mod h1:feiyjU7qpOZ9BXA/BFxZ/hipgsnPtGyW/gxzr4l8WQM=
+github.com/aws/aws-sdk-go-v2/service/apigateway v1.31.3 h1:k3hj3fFmb03BW7dh56fucmmxk44p64uJaz4mnR4TYfs=
+github.com/aws/aws-sdk-go-v2/service/apigateway v1.31.3/go.mod h1:feiyjU7qpOZ9BXA/BFxZ/hipgsnPtGyW/gxzr4l8WQM=
 github.com/aws/aws-sdk-go-v2/service/apigatewayv2 v1.28.2 h1:y4uTziofFx76/uXyUopp9m2s2ZTOmnp4Rx+qi/y9wKw=
 github.com/aws/aws-sdk-go-v2/service/apigatewayv2 v1.28.2/go.mod h1:7M/THRNcz6t6fMas6nZ/ldxGM/Dx2BWGRRcSJxn6X7o=
 github.com/aws/aws-sdk-go-v2/service/athena v1.51.1 h1:JrF2NAw5TO6VPZPXKe0NXz24fZJmkES0+8Tqs7fLv9M=
