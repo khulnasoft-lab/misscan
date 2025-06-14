@@ -12,7 +12,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/config v1.27.27
 	github.com/aws/aws-sdk-go-v2/credentials v1.17.27
 	github.com/aws/aws-sdk-go-v2/service/accessanalyzer v1.39.2
-	github.com/aws/aws-sdk-go-v2/service/apigateway v1.31.2
+	github.com/aws/aws-sdk-go-v2/service/apigateway v1.31.3
 	github.com/aws/aws-sdk-go-v2/service/apigatewayv2 v1.28.2
 	github.com/aws/aws-sdk-go-v2/service/athena v1.51.1
 	github.com/aws/aws-sdk-go-v2/service/cloudfront v1.46.2
