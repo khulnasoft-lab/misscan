@@ -1,4 +1,4 @@
-FROM golang:1.7.3 as dep
+FROM golang:1.24.5 as dep
 COPY dep /binary /
 ENTRYPOINT [ "/opt/app/run.sh --port 8080" ]
 ENTRYPOINT [ "/opt/app/run.sh --port 8080" ]
